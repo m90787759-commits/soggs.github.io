@@ -41,7 +41,7 @@
             padding: 0 20px;
         }
 
-        
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -133,7 +133,7 @@
             animation: fadeIn 0.5s ease;
         }
 
-        
+        /* Hero Section */
         .hero {
             padding: 160px 0 100px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
@@ -339,16 +339,6 @@
             font-weight: 600;
         }
 
-        .video-wrapper video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background-color: #000;
-        }
-
         .video-wrapper {
             position: relative;
             width: 100%;
@@ -357,7 +347,16 @@
             background-color: #000;
         }
 
-       
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Reference Image */
         .reference-image {
             margin-top: 40px;
             background-color: var(--light);
@@ -786,220 +785,9 @@
                     </div>
                 </section>
 
+                <!-- Placeholder for dynamic video loading -->
                 <section class="video-section">
-                    <!-- Куб + Куб -->
-                    <div id="cube-cube-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Куб + Куб</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cube-cube.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Куб + Пирамида -->
-                    <div id="cube-pyramid-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Куб + Пирамида</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cube-pyramid.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Куб + Конус -->
-                    <div id="cube-cone-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Куб + Конус</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cube-cone.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Куб + Шестигранник -->
-                    <div id="cube-hexagon-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Куб + Шестигранник</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cube-hexagon.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Куб + Цилиндр -->
-                    <div id="cube-cylinder-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Куб + Цилиндр</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cube-cylinder.mp4" type="video/mp4">
-                                
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Куб + Шар -->
-                    <div id="cube-sphere-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Куб + Шар</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cube-sphere.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Пирамида + Куб -->
-                    <div id="pyramid-cube-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Пирамида + Куб</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/pyramid-cube.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Пирамида + Конус -->
-                    <div id="pyramid-cone-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Пирамида + Конус</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/pyramid-cone.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Пирамида + Шестигранник -->
-                    <div id="pyramid-hexagon-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Пирамида + Шестигранник</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/pyramid-hexagon.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Пирамида + Цилиндр -->
-                    <div id="pyramid-cylinder-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Пирамида + Цилиндр</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/pyramid-cylinder.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Пирамида + Шар -->
-                    <div id="pyramid-sphere-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Пирамида + Шар</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/pyramid-sphere.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Конус + Куб -->
-                    <div id="cone-cube-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Конус + Куб</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cone-cube.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Конус + Пирамида -->
-                    <div id="cone-pyramid-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Конус + Пирамида</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cone-pyramid.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Конус + Шестигранник -->
-                    <div id="cone-hexagon-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Конус + Шестигранник</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cone-hexagon.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Шестигранник + Куб -->
-                    <div id="hexagon-cube-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Шестигранник + Куб</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/hexagon-cube.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Шестигранник + Пирамида -->
-                    <div id="hexagon-pyramid-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Шестигранник + Пирамида</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/hexagon-pyramid.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Шестигранник + Конус -->
-                    <div id="hexagon-cone-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Шестигранник + Конус</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/hexagon-cone.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Шар + Куб -->
-                    <div id="sphere-cube-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Шар + Куб</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/sphere-cube.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Шар + Пирамида -->
-                    <div id="sphere-pyramid-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Шар + Пирамида</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/sphere-pyramid.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Цилиндр + Куб -->
-                    <div id="cylinder-cube-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Цилиндр + Куб</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cylinder-cube.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    <!-- Цилиндр + Пирамида -->
-                    <div id="cylinder-pyramid-video" class="video-container">
-                        <h3 class="video-title">Рисование композиции: Цилиндр + Пирамида</h3>
-                        <div class="video-wrapper">
-                            <video controls controlsList="nodownload">
-                                <source src="videos/cylinder-pyramid.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    
-                    
-                    
+                    <div id="video-placeholder"></div>
                 </section>
             </div>
         </section>
@@ -1011,6 +799,7 @@
             <div class="container">
                 <h2 class="section-title">Примеры композиций и геометрических тел</h2>
                 <div class="image-container">
+                    <!-- ИЗМЕНЕНИЕ: путь к изображению изменен на img/drawing.jpeg -->
                     <img src="img/drawing.jpeg" alt="Примеры композиций и геометрических тел" class="image-preview" id="image-preview" />
                 </div>
             </div>
@@ -1020,6 +809,7 @@
         <div class="modal" id="image-modal">
             <div class="modal-content">
                 <button class="modal-close" id="modal-close">×</button>
+                <!-- ИЗМЕНЕНИЕ: путь к изображению изменен на img/drawing.jpeg -->
                 <img src="img/drawing.jpeg" alt="Примеры композиций и геометрических тел" class="modal-image" id="modal-image" />
                 <div class="modal-nav">
                     <button class="modal-prev" id="modal-prev">‹</button>
@@ -1125,13 +915,39 @@
                 showPage('home');
             });
 
+            // Video Database with VK video IDs
+            const videoDatabase = {
+                // Format: 'shape1-shape2': 'vk_video_id'
+                'cube-cube': '233252781_456239021', // Пример ID видео ВК
+                'cube-pyramid': '233252781_456239024',
+                'cube-cone': '233252781_456239018',// Пример ID видео ВК
+                'cube-hexagon': '233252781_456239023',
+                'cube-cylinder': '233252781_456239022',
+                'cube-sphere': '233252781_456239025',
+                'pyramid-cube': '233252781_456239024',
+                'pyramid-cone': '233252781_456239020',
+                'pyramid-hexagon': '233252781_456239028',
+                'pyramid-cylinder': '233252781_456239026',
+                'pyramid-sphere': '233252781_456239027',
+                'cone-cube': '233252781_456239018',
+                'cone-pyramid': '233252781_456239020',
+                'cone-hexagon': '233252781_456239029',
+                'hexagon-cube': '233252781_456239023',
+                'hexagon-pyramid': '233252781_456239028',
+                'hexagon-cone': '233252781_456239029',
+                'sphere-cube': '233252781_456239025',
+                'sphere-pyramid': '233252781_456239027',
+                'cylinder-cube': '233252781_456239022',
+                'cylinder-pyramid': '233252781_456239026'
+            };
+
             // Shape selection functionality
             const firstShapeRadios = document.querySelectorAll('input[name="shape1"]');
             const secondShapeRadios = document.querySelectorAll('input[name="shape2"]');
             const secondShapesSection = document.getElementById('second-shapes-section');
             const secondShapeOptions = document.querySelectorAll('#second-shapes-section .shape-option');
-            const videoContainers = document.querySelectorAll('.video-container');
             const shapeOptions = document.querySelectorAll('.shape-option');
+            const videoPlaceholder = document.getElementById('video-placeholder');
             
             // Image modal elements
             const imagePreview = document.getElementById('image-preview');
@@ -1159,6 +975,19 @@
                 ['cone', 'cone']
             ];
 
+            // Функция для получения русских названий фигур
+            function getShapeName(shapeKey) {
+                const shapeNames = {
+                    'cube': 'Куб',
+                    'pyramid': 'Пирамида',
+                    'cone': 'Конус',
+                    'cylinder': 'Цилиндр',
+                    'hexagon': 'Шестигранник',
+                    'sphere': 'Шар'
+                };
+                return shapeNames[shapeKey] || shapeKey;
+            }
+
             // Функция проверки, является ли комбинация запрещенной
             function isForbiddenCombination(shape1, shape2) {
                 return forbiddenCombinations.some(combination => 
@@ -1168,19 +997,39 @@
             }
 
             function hideAllVideos() {
-                videoContainers.forEach(container => {
-                    container.classList.remove('active');
-                });
+                videoPlaceholder.innerHTML = '';
             }
 
-            function showVideo(videoId) {
+            function showVideo(firstShape, secondShape, videoId) {
                 hideAllVideos();
-                const videoElement = document.getElementById(videoId);
-                if (videoElement) {
-                    videoElement.classList.add('active');
-                    // Прокручиваем к видео
-                    videoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                
+                // Создаем контейнер для видео
+                const videoContainer = document.createElement('div');
+                videoContainer.className = 'video-container active';
+                
+                // Создаем заголовок
+                const videoTitle = document.createElement('h3');
+                videoTitle.className = 'video-title';
+                videoTitle.textContent = `Рисование композиции: ${getShapeName(firstShape)} + ${getShapeName(secondShape)}`;
+                
+                // Создаем обертку для видео
+                const videoWrapper = document.createElement('div');
+                videoWrapper.className = 'video-wrapper';
+                
+                // Создаем iframe для видео ВК
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://vk.com/video_ext.php?oid=-${videoId.split('_')[0]}&id=${videoId.split('_')[1]}&hd=2`;
+                iframe.setAttribute('allowfullscreen', 'true');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture');
+                
+                videoWrapper.appendChild(iframe);
+                videoContainer.appendChild(videoTitle);
+                videoContainer.appendChild(videoWrapper);
+                videoPlaceholder.appendChild(videoContainer);
+                
+                // Прокручиваем к видео
+                videoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
 
             function resetSecondShapeSelection() {
@@ -1307,19 +1156,19 @@
                             return;
                         }
 
-                        // Create combination video ID (обе комбинации)
-                        const combinationId1 = firstShape + '-' + secondShape + '-video';
-                        const combinationId2 = secondShape + '-' + firstShape + '-video';
+                        // Создаем ключи для поиска видео (обе комбинации)
+                        const combinationKey1 = firstShape + '-' + secondShape;
+                        const combinationKey2 = secondShape + '-' + firstShape;
                         
-                        // Пробуем найти видео в обеих комбинациях
-                        if (document.getElementById(combinationId1)) {
-                            showVideo(combinationId1);
-                        } else if (document.getElementById(combinationId2)) {
-                            showVideo(combinationId2);
+                        // Ищем видео в базе данных
+                        const videoId = videoDatabase[combinationKey1] || videoDatabase[combinationKey2];
+                        
+                        if (videoId) {
+                            showVideo(firstShape, secondShape, videoId);
                         } else {
                             // Если видео не найдено, показываем сообщение
                             hideAllVideos();
-                            alert('Видео для этой комбинации пока недоступно.');
+                            alert('Видео для этой комбинации пока недоступно. Пожалуйста, выберите другую комбинацию.');
                         }
                     }
                 });
