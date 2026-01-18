@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архитектурные врезки - Подготовка к экзамену по композиции</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2A5C8B;
+            --primary-light: #3A7CBB;
+            --secondary: #E7B34B;
+            --dark: #1A1A1A;
+            --light: #F5F5F5;
+            --gray: #6B7280;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9IiMyQTVDOEIiLz48cGF0aCBkPSJNMCAyMDBDMTUwIDEwMCAzMDAgMzAwIDUwMCAzMDAgNzAwIDMwMCA4NTAgMTAwIDEwMDAgMjAwVjEwMDBIMFYyMDB6IiBmaWxsPSIjM0E3Q0JCIiBmaWxsLW9wYWNpdHk9IjAuMyIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        /* Requirements Section */
+        .requirements {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .requirement-card {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .requirement-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .requirement-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .requirement-card p {
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Shapes Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .shapes-section {
+            margin-bottom: 40px;
+        }
+
+        .shapes-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .shapes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .shape-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 8px;
+        }
+
+        .shape-option:hover {
+            background-color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .shape-option.selected {
+            background-color: var(--primary-light);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .shape-option.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+            background-color: #f8f8f8;
+            border-color: #ddd;
+        }
+
+        .shape-option.disabled input[type="radio"] {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .shape-option.disabled label {
+            color: #aaa;
+            cursor: not-allowed;
+        }
+
+        .shape-option.disabled:hover {
+            background-color: #f8f8f8;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #second-shapes-section {
+            display: none;
+        }
+
+        #second-shapes-section.visible {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .shape-option input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .shape-option label {
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .shape-option.selected label {
+            color: var(--white);
+        }
+
+        /* Video Section */
+        .video-section {
+            margin-top: 40px;
+        }
+
+        .video-container {
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .video-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .video-title {
+            padding: 20px;
+            background-color: var(--primary);
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #000;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background-color: #000;
+        }
+
+        /* Reference Image */
+        .reference-image {
+            margin-top: 40px;
+            background-color: var(--light);
+            padding: 40px 0;
+        }
+
+        .image-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .image-preview {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .image-preview:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Image Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .modal-nav button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            pointer-events: all;
+        }
+
+        .modal-nav button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .footer-column a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            
+            nav.active ul {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 10px 0;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .shapes-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-close {
+                top: -50px;
+                right: 10px;
+            }
+            
+            .modal-nav {
+                padding: 0 10px;
+            }
+            
+            .modal-nav button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .shapes-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo" id="home-link">
+                <span class="logo-icon">🏛️</span>
+                <span>Архитектурные врезки</span>
+            </div>
+            <nav id="main-nav">
+                <button class="mobile-menu-btn" id="mobile-menu-toggle">☰</button>
+                <ul>
+                    <li><a href="#home" class="nav-link active" data-page="home">Главная</a></li>
+                    <li><a href="#requirements" class="nav-link" data-page="requirements">Требования</a></li>
+                    <li><a href="#shapes" class="nav-link" data-page="shapes">Выбор фигур</a></li>
+                    <li><a href="#examples" class="nav-link" data-page="examples">Примеры</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home-page" class="page-section active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Подготовка к экзамену по композиции</h1>
+                    <p>Понятные видеоуроки по созданию композиций из геометрических тел</p>
+                    <p>Выберите две фигуры и получите пошаговое руководство</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="requirements" style="padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title">Быстрый доступ к разделам</h2>
+                <div class="requirements-grid">
+                    <div class="requirement-card quick-link" data-page="requirements">
+                        <h3><span class="requirement-icon">📋</span> Требования</h3>
+                        <p>Узнайте все требования к экзаменационной работе</p>
+                    </div>
+                    <div class="requirement-card quick-link" data-page="shapes">
+                        <h3><span class="requirement-icon">🔷</span> Выбор фигур</h3>
+                        <p>Выберите геометрические фигуры для композиции</p>
+                    </div>
+                    <div class="requirement-card quick-link" data-page="examples">
+                        <h3><span class="requirement-icon">🖼️</span> Примеры</h3>
+                        <p>Изучите примеры готовых композиций</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Requirements Page -->
+    <section id="requirements-page" class="page-section">
+        <section class="requirements">
+            <div class="container">
+                <h2 class="section-title">Требования к экзаменационной работе</h2>
+                <div class="requirements-grid">
+                    <div class="requirement-card">
+                        <h3><span class="requirement-icon">⏱️</span> Продолжительность</h3>
+                        <p>4 часа (240 минут)</p>
+                    </div>
+                    <div class="requirement-card">
+                        <h3><span class="requirement-icon">📄</span> Формат</h3>
+                        <p>Плотная бумага формата А3, вертикальная компоновка</p>
+                    </div>
+                    <div class="requirement-card">
+                        <h3><span class="requirement-icon">✏️</span> Инструменты</h3>
+                        <p>Простой карандаш (цветные исключены)</p>
+                    </div>
+                    <div class="requirement-card">
+                        <h3><span class="requirement-icon">🔢</span> Количество фигур</h3>
+                        <p>От 9 до 15 в композиции</p>
+                    </div>
+                    <div class="requirement-card">
+                        <h3><span class="requirement-icon">🎨</span> Техника</h3>
+                        <p>Перспектива с двумя точками схода, линейно-конструктивная манера</p>
+                    </div>
+                    <div class="requirement-card">
+                        <h3><span class="requirement-icon">⚠️</span> Особые условия</h3>
+                        <p>Допускаются врезки, повторение фигур, различные повороты объемов</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Shapes Page -->
+    <section id="shapes-page" class="page-section">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Выбор геометрических фигур</h2>
+                
+                <section class="shapes-section">
+                    <h3 class="shapes-title">Выберите первую геометрическую фигуру:</h3>
+
+                    <div class="shapes-list">
+                        <div class="shape-option">
+                            <input type="radio" id="cube1" name="shape1" value="cube">
+                            <label for="cube1">Куб</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="pyramid1" name="shape1" value="pyramid">
+                            <label for="pyramid1">Пирамида</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="cone1" name="shape1" value="cone">
+                            <label for="cone1">Конус</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="cylinder1" name="shape1" value="cylinder">
+                            <label for="cylinder1">Цилиндр</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="hexagon1" name="shape1" value="hexagon">
+                            <label for="hexagon1">Шестигранник</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="sphere1" name="shape1" value="sphere">
+                            <label for="sphere1">Шар</label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="shapes-section" id="second-shapes-section">
+                    <h3 class="shapes-title">Выберите вторую геометрическую фигуру:</h3>
+
+                    <div class="shapes-list">
+                        <div class="shape-option">
+                            <input type="radio" id="cube2" name="shape2" value="cube">
+                            <label for="cube2">Куб</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="pyramid2" name="shape2" value="pyramid">
+                            <label for="pyramid2">Пирамида</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="cone2" name="shape2" value="cone">
+                            <label for="cone2">Конус</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="cylinder2" name="shape2" value="cylinder">
+                            <label for="cylinder2">Цилиндр</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="hexagon2" name="shape2" value="hexagon">
+                            <label for="hexagon2">Шестигранник</label>
+                        </div>
+
+                        <div class="shape-option">
+                            <input type="radio" id="sphere2" name="shape2" value="sphere">
+                            <label for="sphere2">Шар</label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="video-section">
+                    <!-- Куб + Куб -->
+                    <div id="cube-cube-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Куб + Куб</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cube-cube.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Куб + Пирамида -->
+                    <div id="cube-pyramid-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Куб + Пирамида</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cube-pyramid.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Куб + Конус -->
+                    <div id="cube-cone-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Куб + Конус</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cube-cone.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Куб + Шестигранник -->
+                    <div id="cube-hexagon-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Куб + Шестигранник</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cube-hexagon.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Куб + Цилиндр -->
+                    <div id="cube-cylinder-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Куб + Цилиндр</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cube-cylinder.mp4" type="video/mp4">
+                                
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Куб + Шар -->
+                    <div id="cube-sphere-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Куб + Шар</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cube-sphere.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Пирамида + Куб -->
+                    <div id="pyramid-cube-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Пирамида + Куб</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/pyramid-cube.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Пирамида + Конус -->
+                    <div id="pyramid-cone-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Пирамида + Конус</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/pyramid-cone.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Пирамида + Шестигранник -->
+                    <div id="pyramid-hexagon-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Пирамида + Шестигранник</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/pyramid-hexagon.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Пирамида + Цилиндр -->
+                    <div id="pyramid-cylinder-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Пирамида + Цилиндр</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/pyramid-cylinder.mp4" type="video/mp4">
+
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Пирамида + Шар -->
+                    <div id="pyramid-sphere-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Пирамида + Шар</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/pyramid-sphere.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Конус + Куб -->
+                    <div id="cone-cube-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Конус + Куб</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cone-cube.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Конус + Пирамида -->
+                    <div id="cone-pyramid-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Конус + Пирамида</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cone-pyramid.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Конус + Шестигранник -->
+                    <div id="cone-hexagon-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Конус + Шестигранник</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cone-hexagon.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Шестигранник + Куб -->
+                    <div id="hexagon-cube-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Шестигранник + Куб</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/hexagon-cube.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Шестигранник + Пирамида -->
+                    <div id="hexagon-pyramid-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Шестигранник + Пирамида</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/hexagon-pyramid.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Шестигранник + Конус -->
+                    <div id="hexagon-cone-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Шестигранник + Конус</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/hexagon-cone.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Шар + Куб -->
+                    <div id="sphere-cube-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Шар + Куб</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/sphere-cube.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Шар + Пирамида -->
+                    <div id="sphere-pyramid-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Шар + Пирамида</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/sphere-pyramid.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Цилиндр + Куб -->
+                    <div id="cylinder-cube-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Цилиндр + Куб</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cylinder-cube.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Цилиндр + Пирамида -->
+                    <div id="cylinder-pyramid-video" class="video-container">
+                        <h3 class="video-title">Рисование композиции: Цилиндр + Пирамида</h3>
+                        <div class="video-wrapper">
+                            <video controls controlsList="nodownload">
+                                <source src="videos/cylinder-pyramid.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <!-- Добавьте другие комбинации по аналогии -->
+                    
+                </section>
+            </div>
+        </section>
+    </section>
+
+    <!-- Examples Page -->
+    <section id="examples-page" class="page-section">
+        <section class="reference-image">
+            <div class="container">
+                <h2 class="section-title">Примеры композиций и геометрических тел</h2>
+                <div class="image-container">
+                    <img src="./drawing.jpeg" alt="Примеры композиций и геометрических тел" class="image-preview" id="image-preview" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Modal -->
+        <div class="modal" id="image-modal">
+            <div class="modal-content">
+                <button class="modal-close" id="modal-close">×</button>
+                <img src="./drawing.jpeg" alt="Примеры композиций и геометрических тел" class="modal-image" id="modal-image" />
+                <div class="modal-nav">
+                    <button class="modal-prev" id="modal-prev">‹</button>
+                    <button class="modal-next" id="modal-next">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Архитектурные врезки</h3>
+                    <p>Помогаем абитуриентам подготовиться к поступлению в архитектурные вузы.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Разделы</h3>
+                    <ul>
+                        <li><a class="footer-nav-link" data-page="home">Главная</a></li>
+                        <li><a class="footer-nav-link" data-page="requirements">Требования</a></li>
+                        <li><a class="footer-nav-link" data-page="shapes">Выбор фигур</a></li>
+                        <li><a class="footer-nav-link" data-page="examples">Примеры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><a href="mailto:mostovich.daniil@yandex.ru">mostovich.daniil@yandex.ru</a></li>
+                        <li><a href="tel:+7 985 717 9583">+7 985 717 9583</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Архитектурные врезки. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page Navigation
+            const pageSections = document.querySelectorAll('.page-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const footerNavLinks = document.querySelectorAll('.footer-nav-link');
+            const quickLinks = document.querySelectorAll('.quick-link');
+            const homeLink = document.getElementById('home-link');
+            const mainNav = document.getElementById('main-nav');
+
+            function showPage(pageId) {
+                // Hide all pages
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show selected page
+                const targetPage = document.getElementById(pageId + '-page');
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+
+                // Update active nav link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === pageId) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+
+                // Close mobile menu if open
+                mainNav.classList.remove('active');
+            }
+
+            // Navigation event listeners
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    showPage(page);
+                });
+            });
+
+            footerNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    showPage(page);
+                });
+            });
+
+            quickLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const page = this.getAttribute('data-page');
+                    showPage(page);
+                });
+            });
+
+            homeLink.addEventListener('click', function() {
+                showPage('home');
+            });
+
+            // Shape selection functionality
+            const firstShapeRadios = document.querySelectorAll('input[name="shape1"]');
+            const secondShapeRadios = document.querySelectorAll('input[name="shape2"]');
+            const secondShapesSection = document.getElementById('second-shapes-section');
+            const secondShapeOptions = document.querySelectorAll('#second-shapes-section .shape-option');
+            const videoContainers = document.querySelectorAll('.video-container');
+            const shapeOptions = document.querySelectorAll('.shape-option');
+            
+            // Image modal elements
+            const imagePreview = document.getElementById('image-preview');
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalClose = document.getElementById('modal-close');
+            const modalPrev = document.getElementById('modal-prev');
+            const modalNext = document.getElementById('modal-next');
+
+            // Shapes that can be combined
+            const combinableShapes = ['cube', 'pyramid', 'hexagon'];
+            const nonCombinableShapes = ['cone', 'cylinder', 'sphere'];
+
+            // Список запрещенных комбинаций (обе комбинации!)
+            const forbiddenCombinations = [
+                ['pyramid', 'pyramid'], // Пирамида + Пирамида
+                ['pyramid', 'pyramid'],
+                ['cylinder', 'hexagon'], // Цилиндр + Шестигранник
+                ['hexagon', 'cylinder'], // Шестигранник + Цилиндр
+                ['hexagon', 'hexagon'], // Шестигранник + Шестигранник
+                ['hexagon', 'hexagon'],
+                ['hexagon', 'sphere'], // Шестигранник + Шар
+                ['sphere', 'hexagon'], // Шар + Шестигранник
+                ['cone', 'cone'], // Конус + Конус
+                ['cone', 'cone']
+            ];
+
+            // Функция проверки, является ли комбинация запрещенной
+            function isForbiddenCombination(shape1, shape2) {
+                return forbiddenCombinations.some(combination => 
+                    (combination[0] === shape1 && combination[1] === shape2) ||
+                    (combination[0] === shape2 && combination[1] === shape1)
+                );
+            }
+
+            function hideAllVideos() {
+                videoContainers.forEach(container => {
+                    container.classList.remove('active');
+                });
+            }
+
+            function showVideo(videoId) {
+                hideAllVideos();
+                const videoElement = document.getElementById(videoId);
+                if (videoElement) {
+                    videoElement.classList.add('active');
+                    // Прокручиваем к видео
+                    videoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
+            function resetSecondShapeSelection() {
+                secondShapeRadios.forEach(radio => {
+                    radio.checked = false;
+                });
+            }
+
+            function enableAllSecondShapes() {
+                secondShapeOptions.forEach(option => {
+                    option.classList.remove('disabled');
+                    const input = option.querySelector('input');
+                    input.disabled = false;
+                });
+            }
+
+            function disableNonCombinableSecondShapes() {
+                secondShapeOptions.forEach(option => {
+                    const input = option.querySelector('input');
+                    const shapeValue = input.value;
+
+                    if (nonCombinableShapes.includes(shapeValue)) {
+                        option.classList.add('disabled');
+                        input.disabled = true;
+                    } else {
+                        option.classList.remove('disabled');
+                        input.disabled = false;
+                    }
+                });
+            }
+
+            // Функция для отключения запрещенных комбинаций
+            function disableForbiddenCombinations(firstShape) {
+                secondShapeOptions.forEach(option => {
+                    const input = option.querySelector('input');
+                    const secondShape = input.value;
+                    
+                    // Проверяем, является ли комбинация запрещенной
+                    if (isForbiddenCombination(firstShape, secondShape)) {
+                        option.classList.add('disabled');
+                        input.disabled = true;
+                        
+                        // Если эта опция была выбрана, снимаем выбор
+                        if (input.checked) {
+                            input.checked = false;
+                        }
+                    }
+                });
+            }
+
+            // Обновленная функция для обновления второй выборки
+            function updateSecondShapes() {
+                const firstShape = document.querySelector('input[name="shape1"]:checked')?.value;
+                
+                if (!firstShape) return;
+
+                // Включаем все вторые фигуры сначала
+                secondShapeOptions.forEach(option => {
+                    option.classList.remove('disabled');
+                    const input = option.querySelector('input');
+                    input.disabled = false;
+                    input.checked = false;
+                });
+
+                // Если первая фигура из nonCombinableShapes, отключаем nonCombinable во второй выборке
+                if (nonCombinableShapes.includes(firstShape)) {
+                    disableNonCombinableSecondShapes();
+                }
+
+                // Отключаем запрещенные комбинации
+                disableForbiddenCombinations(firstShape);
+            }
+
+            // Add visual feedback for selected shapes
+            function updateShapeSelection() {
+                shapeOptions.forEach(option => {
+                    const input = option.querySelector('input');
+                    if (input.checked && !input.disabled) {
+                        option.classList.add('selected');
+                    } else {
+                        option.classList.remove('selected');
+                    }
+                });
+            }
+
+            // Handle first shape selection
+            firstShapeRadios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    const selectedShape = this.value;
+
+                    // Show second shapes section
+                    secondShapesSection.classList.add('visible');
+
+                    // Reset second shape selection
+                    resetSecondShapeSelection();
+                    hideAllVideos();
+                    updateShapeSelection();
+
+                    // Обновляем доступные вторые фигуры
+                    updateSecondShapes();
+                });
+            });
+
+            // Handle second shape selection
+            secondShapeRadios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    // Если опция отключена, игнорируем выбор
+                    if (this.disabled) {
+                        return;
+                    }
+
+                    const firstShape = document.querySelector('input[name="shape1"]:checked')?.value;
+                    const secondShape = this.value;
+
+                    updateShapeSelection();
+
+                    if (firstShape && secondShape) {
+                        // Проверяем, не является ли комбинация запрещенной
+                        if (isForbiddenCombination(firstShape, secondShape)) {
+                            alert('Эта комбинация фигур не доступна для выбора.');
+                            this.checked = false;
+                            updateShapeSelection();
+                            hideAllVideos();
+                            return;
+                        }
+
+                        // Create combination video ID (обе комбинации)
+                        const combinationId1 = firstShape + '-' + secondShape + '-video';
+                        const combinationId2 = secondShape + '-' + firstShape + '-video';
+                        
+                        // Пробуем найти видео в обеих комбинациях
+                        if (document.getElementById(combinationId1)) {
+                            showVideo(combinationId1);
+                        } else if (document.getElementById(combinationId2)) {
+                            showVideo(combinationId2);
+                        } else {
+                            // Если видео не найдено, показываем сообщение
+                            hideAllVideos();
+                            alert('Видео для этой комбинации пока недоступно.');
+                        }
+                    }
+                });
+            });
+
+            // Image modal functionality
+            if (imagePreview) {
+                imagePreview.addEventListener('click', function() {
+                    imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            if (modalClose) {
+                modalClose.addEventListener('click', function() {
+                    imageModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            if (imageModal) {
+                imageModal.addEventListener('click', function(e) {
+                    if (e.target === imageModal) {
+                        imageModal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+                    imageModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                });
+            }
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
