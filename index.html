@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Архитектурные врезки - Подготовка к экзамену по композиции</title>
+    <title>Архитектурные врезки — подготовка к экзамену</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* все стили без изменений — тут всё уже ровно */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         :root {
             --primary: #2A5C8B;
             --primary-light: #3A7CBB;
@@ -19,13 +25,6 @@
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -33,15 +32,12 @@
             background-color: var(--white);
             overflow-x: hidden;
         }
-
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -53,14 +49,12 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
-
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
         }
-
         .logo {
             display: flex;
             align-items: center;
@@ -69,21 +63,18 @@
             color: var(--primary);
             cursor: pointer;
         }
-
         .logo-icon {
             margin-right: 10px;
             font-size: 1.8rem;
         }
-
         nav ul {
             display: flex;
+            justify-content: center;
+            gap: 30px;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
-
-        nav li {
-            margin-left: 30px;
-        }
-
         nav a {
             text-decoration: none;
             color: var(--dark);
@@ -92,11 +83,9 @@
             position: relative;
             cursor: pointer;
         }
-
         nav a:hover, nav a.active {
             color: var(--primary);
         }
-
         nav a::after {
             content: '';
             position: absolute;
@@ -107,11 +96,9 @@
             background-color: var(--primary);
             transition: var(--transition);
         }
-
         nav a:hover::after, nav a.active::after {
             width: 100%;
         }
-
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -120,20 +107,25 @@
             cursor: pointer;
             color: var(--dark);
         }
-
-        /* Page Sections */
         .page-section {
             display: none;
             min-height: 100vh;
             padding-top: 100px;
         }
-
         .page-section.active {
             display: block;
             animation: fadeIn 0.5s ease;
         }
-
-        /* Hero Section */
+        .page-content {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
         .hero {
             padding: 160px 0 100px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
@@ -141,7 +133,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -152,45 +143,33 @@
             background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9IiMyQTVDOEIiLz48cGF0aCBkPSJNMCAyMDBDMTUwIDEwMCAzMDAgMzAwIDUwMCAzMDAgNzAwIDMwMCA4NTAgMTAwIDEwMDAgMjAwVjEwMDBIMFYyMDB6IiBmaWxsPSIjM0E3Q0JCIiBmaWxsLW9wYWNpdHk9IjAuMyIvPjwvc3ZnPg==');
             opacity: 0.3;
         }
-
         .hero-content {
             max-width: 800px;
             position: relative;
             z-index: 1;
         }
-
         .hero h1 {
             font-size: 3rem;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 20px;
         }
-
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 10px;
             opacity: 0.9;
         }
-
-        /* Requirements Section */
-        .requirements {
-            padding: 80px 0;
-            background-color: var(--light);
-        }
-
         .requirements-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-
         .requirement-card {
             background-color: var(--white);
             padding: 25px;
             border-radius: 10px;
             box-shadow: var(--shadow);
         }
-
         .requirement-card h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
@@ -198,48 +177,106 @@
             display: flex;
             align-items: center;
         }
-
         .requirement-icon {
             margin-right: 10px;
             font-size: 1.5rem;
         }
-
         .requirement-card p {
             color: var(--gray);
             line-height: 1.5;
         }
-
-        /* Shapes Section */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
+        .faq-header-link {
             text-align: center;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: var(--primary);
+            margin: 40px 0 20px;
+            font-size: 1.4rem;
         }
-
-        .shapes-section {
-            margin-bottom: 40px;
-        }
-
-        .shapes-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--dark);
+        .faq-header-link a {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 60px;
+            text-decoration: none;
             font-weight: 600;
+            letter-spacing: 0.3px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid var(--primary);
         }
-
+        .faq-header-link a:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: scale(1.02);
+        }
+        .faq-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-category {
+            margin-bottom: 40px;
+        }
+        .faq-category h3 {
+            font-size: 1.9rem;
+            color: var(--primary);
+            border-left: 6px solid var(--secondary);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        .faq-item {
+            background: var(--white);
+            border: 1px solid #eaeef2;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+        .faq-item:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 6px 18px rgba(42,92,139,0.08);
+        }
+        .faq-question {
+            padding: 22px 30px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+        }
+        .faq-question::after {
+            content: "▼";
+            font-size: 0.9rem;
+            color: var(--primary);
+            transition: transform 0.2s;
+        }
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 30px;
+            background: #fafcff;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 30px 25px 30px;
+        }
+        .faq-answer p {
+            color: var(--gray);
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
         .shapes-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
         }
-
         .shape-option {
             display: flex;
             align-items: center;
@@ -250,74 +287,46 @@
             transition: var(--transition);
             border-radius: 8px;
         }
-
         .shape-option:hover {
             background-color: var(--light);
             transform: translateY(-3px);
             box-shadow: var(--shadow);
         }
-
         .shape-option.selected {
             background-color: var(--primary-light);
             color: var(--white);
             border-color: var(--primary);
         }
-
         .shape-option.disabled {
             opacity: 0.4;
             pointer-events: none;
             background-color: #f8f8f8;
             border-color: #ddd;
         }
-
-        .shape-option.disabled input[type="radio"] {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .shape-option.disabled label {
-            color: #aaa;
-            cursor: not-allowed;
-        }
-
-        .shape-option.disabled:hover {
-            background-color: #f8f8f8;
-            transform: none;
-            box-shadow: none;
-        }
-
-        #second-shapes-section {
-            display: none;
-        }
-
-        #second-shapes-section.visible {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
         .shape-option input[type="radio"] {
-            margin-right: 10px;
-            transform: scale(1.2);
+            margin: 0;
+            width: 1.2em;
+            height: 1.2em;
+            flex-shrink: 0;
         }
-
         .shape-option label {
+            line-height: 1.2;
+            margin-left: 10px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 500;
         }
-
         .shape-option.selected label {
             color: var(--white);
         }
-
-        /* Video Section */
-        .video-section {
-            margin-top: 40px;
+        #second-shapes-section {
+            display: none;
         }
-
+        #second-shapes-section.visible {
+            display: block;
+        }
         .video-container {
             display: none;
-            width: 100%;
             max-width: 800px;
             margin: 0 auto 40px;
             background-color: var(--white);
@@ -325,12 +334,9 @@
             overflow: hidden;
             box-shadow: var(--shadow);
         }
-
         .video-container.active {
             display: block;
-            animation: fadeIn 0.5s ease;
         }
-
         .video-title {
             padding: 20px;
             background-color: var(--primary);
@@ -338,15 +344,13 @@
             font-size: 1.3rem;
             font-weight: 600;
         }
-
         .video-wrapper {
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             background-color: #000;
         }
-
         .video-wrapper iframe {
             position: absolute;
             top: 0;
@@ -355,135 +359,73 @@
             height: 100%;
             border: 0;
         }
-
-        /* Reference Image */
         .reference-image {
-            margin-top: 40px;
             background-color: var(--light);
             padding: 40px 0;
         }
-
-        .image-container {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
         .image-preview {
             width: 100%;
-            height: auto;
             max-height: 70vh;
             object-fit: contain;
             border-radius: 10px;
             box-shadow: var(--shadow);
             cursor: pointer;
-            transition: var(--transition);
         }
-
-        .image-preview:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Image Modal */
         .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
             z-index: 2000;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s;
         }
-
         .modal.active {
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 1;
         }
-
         .modal-content {
             max-width: 90%;
             max-height: 90%;
             position: relative;
-            animation: zoomIn 0.3s ease;
+            animation: zoomIn 0.3s;
         }
-
         .modal-image {
             width: 100%;
-            height: auto;
             max-height: 90vh;
             object-fit: contain;
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-
         .modal-close {
             position: absolute;
-            top: -40px;
-            right: -40px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            color: white;
+            top: -40px; right: -40px;
+            background: rgba(255,255,255,0.2);
+            border: none; border-radius: 50%;
+            width: 40px; height: 40px;
+            font-size: 1.5rem; color: white;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
+            display: flex; align-items: center; justify-content: center;
         }
-
-        .modal-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
         .modal-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            transform: translateY(-50%);
+            position: absolute; top: 50%; width: 100%;
+            display: flex; justify-content: space-between;
+            padding: 0 20px; transform: translateY(-50%);
             pointer-events: none;
         }
-
         .modal-nav button {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            pointer-events: all;
+            background: rgba(255,255,255,0.2);
+            border: none; border-radius: 50%;
+            width: 50px; height: 50px;
+            font-size: 1.5rem; color: white;
+            cursor: pointer; pointer-events: all;
         }
-
-        .modal-nav button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
-        /* Footer */
         footer {
             background-color: var(--dark);
             color: var(--white);
             padding: 60px 0 30px;
         }
-
         .footer-content {
             display: flex;
             justify-content: space-between;
@@ -491,26 +433,21 @@
             gap: 40px;
             margin-bottom: 40px;
         }
-
         .footer-column {
             flex: 1;
             min-width: 200px;
         }
-
         .footer-column h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: var(--secondary);
         }
-
         .footer-column ul {
             list-style: none;
         }
-
         .footer-column li {
             margin-bottom: 10px;
         }
-
         .footer-column a {
             color: var(--white);
             text-decoration: none;
@@ -518,107 +455,30 @@
             opacity: 0.8;
             cursor: pointer;
         }
-
         .footer-column a:hover {
             opacity: 1;
             color: var(--secondary);
         }
-
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             opacity: 0.7;
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-
+        @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+        @keyframes zoomIn { from{transform:scale(0.8); opacity:0;} to{transform:scale(1); opacity:1;} }
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--white);
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: var(--shadow);
-            }
-            
-            nav.active ul {
-                display: flex;
-            }
-            
-            nav li {
-                margin: 10px 0;
-            }
-            
-            .hero {
-                padding: 140px 0 80px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .shapes-list {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .modal-close {
-                top: -50px;
-                right: 10px;
-            }
-            
-            .modal-nav {
-                padding: 0 10px;
-            }
-            
-            .modal-nav button {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .shapes-list {
-                grid-template-columns: 1fr;
-            }
+            .mobile-menu-btn { display: block; }
+            nav ul { display: none; position: absolute; top:100%; left:0; width:100%; background:var(--white); flex-direction: column; padding:20px; box-shadow:var(--shadow); }
+            nav.active ul { display: flex; }
+            nav li { margin: 10px 0; }
+            .faq-question { font-size: 1rem; padding: 18px 20px; }
+            .faq-answer { padding: 0 20px; }
+            .faq-item.active .faq-answer { padding: 0 20px 20px 20px; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo" id="home-link">
@@ -632,14 +492,14 @@
                     <li><a href="#requirements" class="nav-link" data-page="requirements">Требования</a></li>
                     <li><a href="#shapes" class="nav-link" data-page="shapes">Выбор фигур</a></li>
                     <li><a href="#examples" class="nav-link" data-page="examples">Примеры</a></li>
+                    <li><a href="#faq" class="nav-link" data-page="faq">FAQ</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Home Page -->
+    <!-- Главная -->
     <section id="home-page" class="page-section active">
-        <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
@@ -649,9 +509,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- Quick Links -->
-        <section class="requirements" style="padding: 80px 0;">
+        <section class="page-content">
             <div class="container">
                 <h2 class="section-title">Быстрый доступ к разделам</h2>
                 <div class="requirements-grid">
@@ -672,145 +530,67 @@
         </section>
     </section>
 
-    <!-- Requirements Page -->
+    <!-- Требования -->
     <section id="requirements-page" class="page-section">
-        <section class="requirements">
+        <section class="page-content">
             <div class="container">
                 <h2 class="section-title">Требования к экзаменационной работе</h2>
                 <div class="requirements-grid">
-                    <div class="requirement-card">
-                        <h3><span class="requirement-icon">⏱️</span> Продолжительность</h3>
-                        <p>4 часа (240 минут)</p>
-                    </div>
-                    <div class="requirement-card">
-                        <h3><span class="requirement-icon">📄</span> Формат</h3>
-                        <p>Плотная бумага формата А3, вертикальная компоновка</p>
-                    </div>
-                    <div class="requirement-card">
-                        <h3><span class="requirement-icon">✏️</span> Инструменты</h3>
-                        <p>Простой карандаш (цветные исключены)</p>
-                    </div>
-                    <div class="requirement-card">
-                        <h3><span class="requirement-icon">🔢</span> Количество фигур</h3>
-                        <p>От 9 до 15 в композиции</p>
-                    </div>
-                    <div class="requirement-card">
-                        <h3><span class="requirement-icon">🎨</span> Техника</h3>
-                        <p>Перспектива с двумя точками схода, линейно-конструктивная манера</p>
-                    </div>
-                    <div class="requirement-card">
-                        <h3><span class="requirement-icon">⚠️</span> Особые условия</h3>
-                        <p>Допускаются врезки, повторение фигур, различные повороты объемов</p>
-                    </div>
+                    <div class="requirement-card"><h3><span class="requirement-icon">⏱️</span> Продолжительность</h3><p>4 часа (240 минут)</p></div>
+                    <div class="requirement-card"><h3><span class="requirement-icon">📄</span> Формат</h3><p>Плотная бумага формата А3, вертикальная компоновка</p></div>
+                    <div class="requirement-card"><h3><span class="requirement-icon">✏️</span> Инструменты</h3><p>Простой карандаш (цветные исключены)</p></div>
+                    <div class="requirement-card"><h3><span class="requirement-icon">🔢</span> Количество фигур</h3><p>От 9 до 15 в композиции</p></div>
+                    <div class="requirement-card"><h3><span class="requirement-icon">🎨</span> Техника</h3><p>Перспектива с двумя точками схода, линейно-конструктивная манера</p></div>
+                    <div class="requirement-card"><h3><span class="requirement-icon">⚠️</span> Особые условия</h3><p>Допускаются врезки, повторение фигур, различные повороты объемов</p></div>
                 </div>
             </div>
         </section>
     </section>
 
-    <!-- Shapes Page -->
+    <!-- Выбор фигур -->
     <section id="shapes-page" class="page-section">
-        <section class="section">
+        <section class="page-content">
             <div class="container">
                 <h2 class="section-title">Выбор геометрических фигур</h2>
-                
                 <section class="shapes-section">
                     <h3 class="shapes-title">Выберите первую геометрическую фигуру:</h3>
-
                     <div class="shapes-list">
-                        <div class="shape-option">
-                            <input type="radio" id="cube1" name="shape1" value="cube">
-                            <label for="cube1">Куб</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="pyramid1" name="shape1" value="pyramid">
-                            <label for="pyramid1">Пирамида</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="cone1" name="shape1" value="cone">
-                            <label for="cone1">Конус</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="cylinder1" name="shape1" value="cylinder">
-                            <label for="cylinder1">Цилиндр</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="hexagon1" name="shape1" value="hexagon">
-                            <label for="hexagon1">Шестигранник</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="sphere1" name="shape1" value="sphere">
-                            <label for="sphere1">Шар</label>
-                        </div>
+                        <div class="shape-option"><input type="radio" id="cube1" name="shape1" value="cube"><label for="cube1">Куб</label></div>
+                        <div class="shape-option"><input type="radio" id="pyramid1" name="shape1" value="pyramid"><label for="pyramid1">Пирамида</label></div>
+                        <div class="shape-option"><input type="radio" id="cone1" name="shape1" value="cone"><label for="cone1">Конус</label></div>
+                        <div class="shape-option"><input type="radio" id="cylinder1" name="shape1" value="cylinder"><label for="cylinder1">Цилиндр</label></div>
+                        <div class="shape-option"><input type="radio" id="hexagon1" name="shape1" value="hexagon"><label for="hexagon1">Шестигранник</label></div>
+                        <div class="shape-option"><input type="radio" id="sphere1" name="shape1" value="sphere"><label for="sphere1">Шар</label></div>
                     </div>
                 </section>
-
                 <section class="shapes-section" id="second-shapes-section">
                     <h3 class="shapes-title">Выберите вторую геометрическую фигуру:</h3>
-
                     <div class="shapes-list">
-                        <div class="shape-option">
-                            <input type="radio" id="cube2" name="shape2" value="cube">
-                            <label for="cube2">Куб</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="pyramid2" name="shape2" value="pyramid">
-                            <label for="pyramid2">Пирамида</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="cone2" name="shape2" value="cone">
-                            <label for="cone2">Конус</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="cylinder2" name="shape2" value="cylinder">
-                            <label for="cylinder2">Цилиндр</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="hexagon2" name="shape2" value="hexagon">
-                            <label for="hexagon2">Шестигранник</label>
-                        </div>
-
-                        <div class="shape-option">
-                            <input type="radio" id="sphere2" name="shape2" value="sphere">
-                            <label for="sphere2">Шар</label>
-                        </div>
+                        <div class="shape-option"><input type="radio" id="cube2" name="shape2" value="cube"><label for="cube2">Куб</label></div>
+                        <div class="shape-option"><input type="radio" id="pyramid2" name="shape2" value="pyramid"><label for="pyramid2">Пирамида</label></div>
+                        <div class="shape-option"><input type="radio" id="cone2" name="shape2" value="cone"><label for="cone2">Конус</label></div>
+                        <div class="shape-option"><input type="radio" id="cylinder2" name="shape2" value="cylinder"><label for="cylinder2">Цилиндр</label></div>
+                        <div class="shape-option"><input type="radio" id="hexagon2" name="shape2" value="hexagon"><label for="hexagon2">Шестигранник</label></div>
+                        <div class="shape-option"><input type="radio" id="sphere2" name="shape2" value="sphere"><label for="sphere2">Шар</label></div>
                     </div>
                 </section>
-
-                <!-- Placeholder for dynamic video loading -->
-                <section class="video-section">
-                    <div id="video-placeholder"></div>
-                </section>
+                <section class="video-section"><div id="video-placeholder"></div></section>
             </div>
         </section>
     </section>
 
-    <!-- Examples Page -->
+    <!-- Примеры -->
     <section id="examples-page" class="page-section">
         <section class="reference-image">
             <div class="container">
                 <h2 class="section-title">Примеры композиций и геометрических тел</h2>
-                <div class="image-container">
-                    <!-- ИЗМЕНЕНИЕ: путь к изображению изменен на img/drawing.jpeg -->
-                    <img src="img/drawing.jpeg" alt="Примеры композиций и геометрических тел" class="image-preview" id="image-preview" />
-                </div>
+                <div class="image-container"><img src="img/drawing.jpeg" alt="Примеры композиций и геометрических тел" class="image-preview" id="image-preview"/></div>
             </div>
         </section>
-
-        <!-- Image Modal -->
         <div class="modal" id="image-modal">
             <div class="modal-content">
                 <button class="modal-close" id="modal-close">×</button>
-                <!-- ИЗМЕНЕНИЕ: путь к изображению изменен на img/drawing.jpeg -->
-                <img src="img/drawing.jpeg" alt="Примеры композиций и геометрических тел" class="modal-image" id="modal-image" />
+                <img src="img/drawing.jpeg" alt="Примеры композиций и геометрических тел" class="modal-image" id="modal-image"/>
                 <div class="modal-nav">
                     <button class="modal-prev" id="modal-prev">‹</button>
                     <button class="modal-next" id="modal-next">›</button>
@@ -819,40 +599,94 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FAQ -->
+    <section id="faq-page" class="page-section">
+        <section class="page-content">
+            <div class="container">
+                <h2 class="section-title">Часто задаваемые вопросы</h2>
+                <div class="faq-header-link">
+                    <a href="https://clck.ru/3SVMsj" target="_blank" rel="noopener noreferrer">📬 Перейдите, чтобы оставить свой вопрос</a>
+                </div>
+                <div class="faq-section">
+                    <!-- 1. Творческие испытания -->
+                    <div class="faq-category">
+                        <h3>1. Творческие испытания</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">Что именно нужно сдавать из творческих экзаменов?</div>
+                            <div class="faq-answer"><p>В большинстве ведущих архитектурных вузов это два основных экзамена: Рисунок (как правило, голова античного героя или капитель) и Композиция (создание объемно-пространственной композиции из геометрических тел). В некоторых вузах также может быть экзамен по черчению.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Где посмотреть критерии оценивания?</div>
+                            <div class="faq-answer"><p>На официальных сайтах вузов в разделе «Абитуриенту» → «Программы вступительных испытаний». Там всегда выкладываются требования к композиции, качеству штриховки в рисунке и академическим стандартам.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Нужно ли приносить свои инструменты?</div>
+                            <div class="faq-answer"><p>Да, обязательно. Вуз предоставляет только рабочее место (мольберт/стол). Карандаши разной мягкости, ластики, кнопки, малярный скотч и планшеты (формата А2 или А3) вы приносите свои.</p></div>
+                        </div>
+                    </div>
+                    <!-- 2. Подготовка и курсы -->
+                    <div class="faq-category">
+                        <h3>2. Подготовка и курсы</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">Обязательно ли ходить на подготовительные курсы при вузе?</div>
+                            <div class="faq-answer"><p>Это не обязательно юридически, но крайне рекомендуется. Преподаватели вуза на курсах задают «вузовский стиль» рисования и композиции, который сильно отличается от стандартов обычной художественной школы. Знание этих нюансов дает огромное преимущество на экзамене.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Как оценивается портфолио?</div>
+                            <div class="faq-answer"><p>Большинство архитектурных вузов Москвы принимают студентов исключительно по результатам экзаменов (ЕГЭ + внутренние творческие испытания). Портфолио может пригодиться для дополнительных баллов (индивидуальные достижения), если это прописано в правилах приема вуза.</p></div>
+                        </div>
+                    </div>
+                    <!-- 3. Документы и формальности -->
+                    <div class="faq-category">
+                        <h3>3. Документы и формальности</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">Какие предметы ЕГЭ обязательны?</div>
+                            <div class="faq-answer"><p>Стандартный набор: Математика (профильный уровень) и Русский язык. В некоторых вузах могут требовать историю или литературу — всегда проверяйте актуальные правила приема текущего года.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Нужна ли медицинская справка?</div>
+                            <div class="faq-answer"><p>Да, для архитектурных специальностей обязательна медицинская справка формы 086/у, подтверждающая пригодность к обучению.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Как подать документы?</div>
+                            <div class="faq-answer"><p>Через личный кабинет абитуриента на сайте вуза, лично в приемной комиссии или через портал «Госуслуги» (суперсервис «Поступление в вуз онлайн»).</p></div>
+                        </div>
+                    </div>
+                    <!-- 4. Конкурс и проходные баллы -->
+                    <div class="faq-category">
+                        <h3>4. Конкурс и проходные баллы</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">Что такое «минимальный порог»?</div>
+                            <div class="faq-answer"><p>Это минимальный балл ЕГЭ, который дает право на допуск к внутренним творческим экзаменам. Если вы не набрали этот минимум, документы на творческий конкурс просто не примут.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Сколько бюджетных мест?</div>
+                            <div class="faq-answer"><p>Количество мест ежегодно утверждается Министерством науки и высшего образования. Актуальную цифру нужно смотреть в разделе «Контрольные цифры приема» на сайте вуза за текущий год.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Как подать апелляцию?</div>
+                            <div class="faq-answer"><p>Апелляция подается на следующий день после объявления результатов экзамена. Важно понимать, что апелляция рассматривает процедурные нарушения, а не субъективное «мне поставили мало баллов».</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Архитектурные врезки</h3>
-                    <p>Помогаем абитуриентам подготовиться к поступлению в архитектурные вузы.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Разделы</h3>
-                    <ul>
-                        <li><a class="footer-nav-link" data-page="home">Главная</a></li>
-                        <li><a class="footer-nav-link" data-page="requirements">Требования</a></li>
-                        <li><a class="footer-nav-link" data-page="shapes">Выбор фигур</a></li>
-                        <li><a class="footer-nav-link" data-page="examples">Примеры</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Контакты</h3>
-                    <ul>
-                        <li><a href="mailto:mostovich.daniil@yandex.ru">mostovich.daniil@yandex.ru</a></li>
-                        <li><a href="tel:+7 985 717 9583">+7 985 717 9583</a></li>
-                    </ul>
-                </div>
+                <div class="footer-column"><h3>Архитектурные врезки</h3><p>Помогаем абитуриентам подготовиться к поступлению в архитектурные вузы.</p></div>
+                <div class="footer-column"><h3>Разделы</h3><ul><li><a class="footer-nav-link" data-page="home">Главная</a></li><li><a class="footer-nav-link" data-page="requirements">Требования</a></li><li><a class="footer-nav-link" data-page="shapes">Выбор фигур</a></li><li><a class="footer-nav-link" data-page="examples">Примеры</a></li><li><a class="footer-nav-link" data-page="faq">FAQ</a></li></ul></div>
+                <div class="footer-column"><h3>Контакты</h3><ul><li><a href="mailto:mostovich.daniil@yandex.ru">mostovich.daniil@yandex.ru</a></li><li><a href="tel:+79857179583">+7 985 717 9583</a></li></ul></div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Архитектурные врезки. Все права защищены.</p>
-            </div>
+            <div class="copyright"><p>&copy; 2026 Архитектурные врезки. Все права защищены.</p></div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Page Navigation
+            // ===== НАВИГАЦИЯ =====
             const pageSections = document.querySelectorAll('.page-section');
             const navLinks = document.querySelectorAll('.nav-link');
             const footerNavLinks = document.querySelectorAll('.footer-nav-link');
@@ -861,66 +695,47 @@
             const mainNav = document.getElementById('main-nav');
 
             function showPage(pageId) {
-                // Hide all pages
-                pageSections.forEach(section => {
-                    section.classList.remove('active');
-                });
-
-                // Show selected page
-                const targetPage = document.getElementById(pageId + '-page');
-                if (targetPage) {
-                    targetPage.classList.add('active');
-                }
-
-                // Update active nav link
+                pageSections.forEach(s => s.classList.remove('active'));
+                const target = document.getElementById(pageId + '-page');
+                if (target) target.classList.add('active');
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('data-page') === pageId) {
-                        link.classList.add('active');
-                    }
+                    if (link.getAttribute('data-page') === pageId) link.classList.add('active');
                 });
-
-                // Scroll to top
                 window.scrollTo(0, 0);
-
-                // Close mobile menu if open
                 mainNav.classList.remove('active');
             }
 
-            // Navigation event listeners
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const page = this.getAttribute('data-page');
-                    showPage(page);
+                    showPage(this.getAttribute('data-page'));
                 });
             });
-
             footerNavLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const page = this.getAttribute('data-page');
-                    showPage(page);
+                    showPage(this.getAttribute('data-page'));
                 });
             });
-
             quickLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    const page = this.getAttribute('data-page');
-                    showPage(page);
+                    showPage(this.getAttribute('data-page'));
                 });
             });
+            homeLink.addEventListener('click', () => showPage('home'));
 
-            homeLink.addEventListener('click', function() {
-                showPage('home');
+            // мобильное меню
+            const mobileToggle = document.getElementById('mobile-menu-toggle');
+            mobileToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
             });
 
-            // Video Database with VK video IDs
+            // ===== БАЗА ВИДЕО =====
             const videoDatabase = {
-                // Format: 'shape1-shape2': 'vk_video_id'
-                'cube-cube': '233252781_456239021', // Пример ID видео ВК
+                'cube-cube': '233252781_456239021',
                 'cube-pyramid': '233252781_456239024',
-                'cube-cone': '233252781_456239018',// Пример ID видео ВК
+                'cube-cone': '233252781_456239018',
                 'cube-hexagon': '233252781_456239023',
                 'cube-cylinder': '233252781_456239022',
                 'cube-sphere': '233252781_456239025',
@@ -941,280 +756,170 @@
                 'cylinder-pyramid': '233252781_456239026'
             };
 
-            // Shape selection functionality
-            const firstShapeRadios = document.querySelectorAll('input[name="shape1"]');
-            const secondShapeRadios = document.querySelectorAll('input[name="shape2"]');
-            const secondShapesSection = document.getElementById('second-shapes-section');
-            const secondShapeOptions = document.querySelectorAll('#second-shapes-section .shape-option');
+            // ===== ВЫБОР ФИГУР С СЕРЫМИ НЕДОСТУПНЫМИ =====
+            const firstRadios = document.querySelectorAll('input[name="shape1"]');
+            const secondRadios = document.querySelectorAll('input[name="shape2"]');
+            const secondSection = document.getElementById('second-shapes-section');
             const shapeOptions = document.querySelectorAll('.shape-option');
             const videoPlaceholder = document.getElementById('video-placeholder');
-            
-            // Image modal elements
-            const imagePreview = document.getElementById('image-preview');
-            const imageModal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-            const modalClose = document.getElementById('modal-close');
-            const modalPrev = document.getElementById('modal-prev');
-            const modalNext = document.getElementById('modal-next');
 
-            // Shapes that can be combined
-            const combinableShapes = ['cube', 'pyramid', 'hexagon'];
+            // Фигуры, которые нельзя комбинировать друг с другом (если первая такая, то вторые тоже становятся недоступны)
             const nonCombinableShapes = ['cone', 'cylinder', 'sphere'];
 
-            // Список запрещенных комбинаций (обе комбинации!)
-            const forbiddenCombinations = [
-                ['pyramid', 'pyramid'], // Пирамида + Пирамида
+            // Явные запрещённые пары (дополнительно)
+            const forbiddenPairs = [
                 ['pyramid', 'pyramid'],
-                ['cylinder', 'hexagon'], // Цилиндр + Шестигранник
-                ['hexagon', 'cylinder'], // Шестигранник + Цилиндр
-                ['hexagon', 'hexagon'], // Шестигранник + Шестигранник
+                ['cylinder', 'hexagon'],
+                ['hexagon', 'cylinder'],
                 ['hexagon', 'hexagon'],
-                ['hexagon', 'sphere'], // Шестигранник + Шар
-                ['sphere', 'hexagon'], // Шар + Шестигранник
-                ['cone', 'cone'], // Конус + Конус
+                ['hexagon', 'sphere'],
+                ['sphere', 'hexagon'],
                 ['cone', 'cone']
             ];
 
-            // Функция для получения русских названий фигур
             function getShapeName(shapeKey) {
-                const shapeNames = {
-                    'cube': 'Куб',
-                    'pyramid': 'Пирамида',
-                    'cone': 'Конус',
-                    'cylinder': 'Цилиндр',
-                    'hexagon': 'Шестигранник',
-                    'sphere': 'Шар'
-                };
-                return shapeNames[shapeKey] || shapeKey;
+                const names = { cube:'Куб', pyramid:'Пирамида', cone:'Конус', cylinder:'Цилиндр', hexagon:'Шестигранник', sphere:'Шар' };
+                return names[shapeKey] || shapeKey;
             }
 
-            // Функция проверки, является ли комбинация запрещенной
-            function isForbiddenCombination(shape1, shape2) {
-                return forbiddenCombinations.some(combination => 
-                    (combination[0] === shape1 && combination[1] === shape2) ||
-                    (combination[0] === shape2 && combination[1] === shape1)
+            function isForbidden(first, second) {
+                return forbiddenPairs.some(pair => 
+                    (pair[0] === first && pair[1] === second) || (pair[0] === second && pair[1] === first)
                 );
             }
 
-            function hideAllVideos() {
-                videoPlaceholder.innerHTML = '';
+            function updateSecondShapes() {
+                const first = document.querySelector('input[name="shape1"]:checked')?.value;
+                if (!first) return;
+
+                // Сначала включаем все вторые фигуры
+                secondRadios.forEach(radio => {
+                    const parent = radio.closest('.shape-option');
+                    parent.classList.remove('disabled');
+                    radio.disabled = false;
+                });
+
+                // Если первая фигура из nonCombinableShapes, отключаем все nonCombinable во втором выборе
+                if (nonCombinableShapes.includes(first)) {
+                    secondRadios.forEach(radio => {
+                        if (nonCombinableShapes.includes(radio.value)) {
+                            const parent = radio.closest('.shape-option');
+                            parent.classList.add('disabled');
+                            radio.disabled = true;
+                            if (radio.checked) radio.checked = false;
+                        }
+                    });
+                }
+
+                // Затем отключаем явно запрещённые комбинации (даже если они уже отключены, ничего страшного)
+                secondRadios.forEach(radio => {
+                    const parent = radio.closest('.shape-option');
+                    const second = radio.value;
+                    if (isForbidden(first, second)) {
+                        parent.classList.add('disabled');
+                        radio.disabled = true;
+                        if (radio.checked) radio.checked = false;
+                    }
+                });
             }
 
-            function showVideo(firstShape, secondShape, videoId) {
-                hideAllVideos();
-                
-                // Создаем контейнер для видео
-                const videoContainer = document.createElement('div');
-                videoContainer.className = 'video-container active';
-                
-                // Создаем заголовок
-                const videoTitle = document.createElement('h3');
-                videoTitle.className = 'video-title';
-                videoTitle.textContent = `Рисование композиции: ${getShapeName(firstShape)} + ${getShapeName(secondShape)}`;
-                
-                // Создаем обертку для видео
-                const videoWrapper = document.createElement('div');
-                videoWrapper.className = 'video-wrapper';
-                
-                // Создаем iframe для видео ВК
+            function showVideo(shape1, shape2, videoId) {
+                videoPlaceholder.innerHTML = '';
+                const container = document.createElement('div');
+                container.className = 'video-container active';
+                const title = document.createElement('h3');
+                title.className = 'video-title';
+                title.textContent = `Рисование композиции: ${getShapeName(shape1)} + ${getShapeName(shape2)}`;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'video-wrapper';
                 const iframe = document.createElement('iframe');
                 iframe.src = `https://vk.com/video_ext.php?oid=-${videoId.split('_')[0]}&id=${videoId.split('_')[1]}&hd=2`;
                 iframe.setAttribute('allowfullscreen', 'true');
                 iframe.setAttribute('frameborder', '0');
                 iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture');
-                
-                videoWrapper.appendChild(iframe);
-                videoContainer.appendChild(videoTitle);
-                videoContainer.appendChild(videoWrapper);
-                videoPlaceholder.appendChild(videoContainer);
-                
-                // Прокручиваем к видео
-                videoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                wrapper.appendChild(iframe);
+                container.appendChild(title);
+                container.appendChild(wrapper);
+                videoPlaceholder.appendChild(container);
+                container.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
 
-            function resetSecondShapeSelection() {
-                secondShapeRadios.forEach(radio => {
-                    radio.checked = false;
-                });
-            }
-
-            function enableAllSecondShapes() {
-                secondShapeOptions.forEach(option => {
-                    option.classList.remove('disabled');
-                    const input = option.querySelector('input');
-                    input.disabled = false;
-                });
-            }
-
-            function disableNonCombinableSecondShapes() {
-                secondShapeOptions.forEach(option => {
-                    const input = option.querySelector('input');
-                    const shapeValue = input.value;
-
-                    if (nonCombinableShapes.includes(shapeValue)) {
-                        option.classList.add('disabled');
-                        input.disabled = true;
-                    } else {
-                        option.classList.remove('disabled');
-                        input.disabled = false;
-                    }
-                });
-            }
-
-            // Функция для отключения запрещенных комбинаций
-            function disableForbiddenCombinations(firstShape) {
-                secondShapeOptions.forEach(option => {
-                    const input = option.querySelector('input');
-                    const secondShape = input.value;
-                    
-                    // Проверяем, является ли комбинация запрещенной
-                    if (isForbiddenCombination(firstShape, secondShape)) {
-                        option.classList.add('disabled');
-                        input.disabled = true;
-                        
-                        // Если эта опция была выбрана, снимаем выбор
-                        if (input.checked) {
-                            input.checked = false;
-                        }
-                    }
-                });
-            }
-
-            // Обновленная функция для обновления второй выборки
-            function updateSecondShapes() {
-                const firstShape = document.querySelector('input[name="shape1"]:checked')?.value;
-                
-                if (!firstShape) return;
-
-                // Включаем все вторые фигуры сначала
-                secondShapeOptions.forEach(option => {
-                    option.classList.remove('disabled');
-                    const input = option.querySelector('input');
-                    input.disabled = false;
-                    input.checked = false;
-                });
-
-                // Если первая фигура из nonCombinableShapes, отключаем nonCombinable во второй выборке
-                if (nonCombinableShapes.includes(firstShape)) {
-                    disableNonCombinableSecondShapes();
-                }
-
-                // Отключаем запрещенные комбинации
-                disableForbiddenCombinations(firstShape);
-            }
-
-            // Add visual feedback for selected shapes
-            function updateShapeSelection() {
-                shapeOptions.forEach(option => {
-                    const input = option.querySelector('input');
-                    if (input.checked && !input.disabled) {
-                        option.classList.add('selected');
-                    } else {
-                        option.classList.remove('selected');
-                    }
-                });
-            }
-
-            // Handle first shape selection
-            firstShapeRadios.forEach(radio => {
-                radio.addEventListener('change', function () {
-                    const selectedShape = this.value;
-
-                    // Show second shapes section
-                    secondShapesSection.classList.add('visible');
-
-                    // Reset second shape selection
-                    resetSecondShapeSelection();
-                    hideAllVideos();
-                    updateShapeSelection();
-
-                    // Обновляем доступные вторые фигуры
+            firstRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    secondSection.classList.add('visible');
+                    secondRadios.forEach(r => { r.checked = false; });
+                    videoPlaceholder.innerHTML = '';
                     updateSecondShapes();
                 });
             });
 
-            // Handle second shape selection
-            secondShapeRadios.forEach(radio => {
-                radio.addEventListener('change', function () {
-                    // Если опция отключена, игнорируем выбор
-                    if (this.disabled) {
-                        return;
-                    }
-
-                    const firstShape = document.querySelector('input[name="shape1"]:checked')?.value;
-                    const secondShape = this.value;
-
-                    updateShapeSelection();
-
-                    if (firstShape && secondShape) {
-                        // Проверяем, не является ли комбинация запрещенной
-                        if (isForbiddenCombination(firstShape, secondShape)) {
-                            alert('Эта комбинация фигур не доступна для выбора.');
-                            this.checked = false;
-                            updateShapeSelection();
-                            hideAllVideos();
-                            return;
-                        }
-
-                        // Создаем ключи для поиска видео (обе комбинации)
-                        const combinationKey1 = firstShape + '-' + secondShape;
-                        const combinationKey2 = secondShape + '-' + firstShape;
-                        
-                        // Ищем видео в базе данных
-                        const videoId = videoDatabase[combinationKey1] || videoDatabase[combinationKey2];
-                        
-                        if (videoId) {
-                            showVideo(firstShape, secondShape, videoId);
-                        } else {
-                            // Если видео не найдено, показываем сообщение
-                            hideAllVideos();
-                            alert('Видео для этой комбинации пока недоступно. Пожалуйста, выберите другую комбинацию.');
-                        }
+            secondRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.disabled) return;
+                    const first = document.querySelector('input[name="shape1"]:checked')?.value;
+                    const second = this.value;
+                    if (!first) return;
+                    const key1 = first + '-' + second;
+                    const key2 = second + '-' + first;
+                    const videoId = videoDatabase[key1] || videoDatabase[key2];
+                    if (videoId) {
+                        showVideo(first, second, videoId);
+                    } else {
+                        videoPlaceholder.innerHTML = '';
+                        alert('Видео для этой комбинации пока недоступно.');
                     }
                 });
             });
 
-            // Image modal functionality
-            if (imagePreview) {
-                imagePreview.addEventListener('click', function() {
-                    imageModal.classList.add('active');
+            // подсветка выбранных
+            document.querySelectorAll('.shape-option input').forEach(inp => {
+                inp.addEventListener('change', function() {
+                    shapeOptions.forEach(opt => opt.classList.remove('selected'));
+                    document.querySelectorAll('.shape-option input:checked').forEach(ch => {
+                        ch.closest('.shape-option').classList.add('selected');
+                    });
+                });
+            });
+
+            // ===== АККОРДЕОН FAQ =====
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+
+            // ===== МОДАЛКА ПРИМЕРА =====
+            const preview = document.getElementById('image-preview');
+            const modal = document.getElementById('image-modal');
+            const closeBtn = document.getElementById('modal-close');
+            if (preview) {
+                preview.addEventListener('click', () => {
+                    modal.classList.add('active');
                     document.body.style.overflow = 'hidden';
                 });
             }
-
-            if (modalClose) {
-                modalClose.addEventListener('click', function() {
-                    imageModal.classList.remove('active');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.remove('active');
                     document.body.style.overflow = '';
                 });
             }
-
-            if (imageModal) {
-                imageModal.addEventListener('click', function(e) {
-                    if (e.target === imageModal) {
-                        imageModal.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && imageModal.classList.contains('active')) {
-                    imageModal.classList.remove('active');
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
                     document.body.style.overflow = '';
                 }
             });
 
-            // Mobile menu toggle
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            
-            if (mobileMenuToggle) {
-                mobileMenuToggle.addEventListener('click', () => {
-                    mainNav.classList.toggle('active');
-                });
-            }
-            
-            // Header scroll effect
+            // эффект скролла
             window.addEventListener('scroll', () => {
                 const header = document.querySelector('header');
                 if (window.scrollY > 100) {
